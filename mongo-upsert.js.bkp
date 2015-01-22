@@ -34,6 +34,8 @@ while (i < 10) {
 
     var q = testqueries[collectionName][queryType];
 
+    queryType = 'upsert'
+
     print(new Date() + ': ' + i);
 
     if (queryType === 'insert') {
