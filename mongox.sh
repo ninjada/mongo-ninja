@@ -1,15 +1,16 @@
 #!/bin/bash
-# Usage = ./mongox.sh <mongo-file> <number of threads>
-# Example for mongo-insert test with 24 threads = ./mongox.sh mongo-insert 24
-FILE1=$1
+# Usage = ./mongox.sh <test-type> <number of threads>
+# test-types = .js files eg. insert upsert incre
+# Example for mongo-insert test with 24 threads = ./mongox.sh insert 24
+TEST=$1
 SCREENS=$2
+COUNTER=1
 
 rm -rf milli.log
 
-COUNTER=1
 while [ $COUNTER -le $SCREENS ]
 do
-     screen -dm -S "mongo$COUNTER" ./$FILE1.sh
+     screen -dm -S "mongo$COUNTER" ./mongo-$TEST.sh
      echo " $COUNTER "
      COUNTER=$(( $COUNTER + 1 ))
 done

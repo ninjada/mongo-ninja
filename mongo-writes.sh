@@ -4,9 +4,8 @@ START=$(date +%s%3N)
 # do something
 mongo localhost:27017/stackla mongo-writes.js
 # stop doing something
-# Stop time
 END=$(date +%s%3N)
 DIFF=$(( $END - $START ))
 # Run time in MSec
-echo "It took $DIFF MilliSeconds"
+echo "$DIFF MilliSeconds elapsed"
 echo $DIFF >> milli.log
