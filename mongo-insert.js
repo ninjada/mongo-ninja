@@ -25,7 +25,7 @@ var testqueries = {
 
 
 var i = 1;
-while (i <= 10) {
+while (i <= 1000) {
     var rand1 = Math.round(Math.random() * 100) % 3; // 0, 1, 2
     var rand2 = 0;
 
