@@ -24,7 +24,7 @@ var testqueries = {
 
 
 var i = 1;
-while (i < 1000) {
+while (i <= 1000) {
     var rand1 = Math.round(Math.random() * 100) % 3; // 0, 1, 2
     var rand2 = Math.round(Math.random() * 100) % 3;
 
@@ -42,6 +42,9 @@ while (i < 1000) {
     } else {
         db.getCollection(collectionName).update({}, q, false, true);
     }
+
+    print(db.getCollection(collectionName).count());
+    print(db.getCollection(collectionName));
 
     i += 1;
 }

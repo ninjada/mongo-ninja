@@ -23,7 +23,7 @@ var testqueries = {
 
 
 var i = 1;
-while (i < 10) {
+while (i <= 10) {
     var rand1 = Math.round(Math.random() * 100) % 3; // 0, 1, 2
     var rand2 = 1;
 
@@ -42,7 +42,7 @@ while (i < 10) {
         db.getCollection(collectionName).update({}, q, false, true);
     }
     
-    print(db.getCollection(collectionName));
+//    print(db.getCollection(collectionName));
     print(db.getCollection(collectionName).count());
 
     i += 1;
