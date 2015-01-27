@@ -22,9 +22,9 @@ var testqueries = {
 
 }
 
-
+var a = 1;
 var i = 1;
-while (i <= 1000) {
+while (i <= 10) {
     var rand1 = Math.round(Math.random() * 100) % 3; // 0, 1, 2
     var rand2 = Math.round(Math.random() * 100) % 3;
 
@@ -34,9 +34,14 @@ while (i <= 1000) {
     var q = testqueries[collectionName][queryType];
 
     print(new Date() + ': ' + i);
+    print(queryType);
+    print(db.getCollection(collectionName).count());
 
     if (queryType === 'insert') {
+	while (a <= 100000) {
         db.getCollection(collectionName).insert(q);
+	    a += 1;
+	}
     } else if (queryType === 'upsert') {
         db.getCollection(collectionName).update({}, q, false, true);
     } else {
