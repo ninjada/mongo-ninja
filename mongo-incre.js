@@ -44,6 +44,7 @@ while (i <= 10) {
     }
 
     print(db.getCollection(collectionName).count());
+    print(db.getCollection(collectionName));
 
     i += 1;
 }
