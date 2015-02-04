@@ -55,31 +55,31 @@ var i = 0;
 var a = 1;
 var numDocs = 100000;
 
-while (i <= 1) {
+while (i <= 2) {
 
     var collectionName = testcollectionnames[0];
-    var queryType = queryTypes[2];
+    var queryType = queryTypes[1];
 
     var q = testqueries[collectionName][queryType];
 
     var lastResult = "";
     print(new Date() + ' i:' + i);
-    print("before count:" + db.getCollection(collectionName).count());
+    print("before count:" + csDB.getCollection(collectionName).count());
 
     var start = new Date();
     if (queryType === 'insert') {
-    	while (a <= numDocs) {
-            lastResult = db.getCollection(collectionName).insert(q);
-            a += 1;
+    while (a <= numDocs) {
+        lastResult = csDB.getCollection(collectionName).insert(q);
+        a += 1;
     }
     } else if (queryType === 'upsert') {
-        lastResult = db.getCollection(collectionName).update({}, q, false, true);
+        lastResult = csDB.getCollection(collectionName).update({}, q, false, true);
     } else {
-        lastResult = db.getCollection(collectionName).update({}, q, false, true);
+        lastResult = csDB.getCollection(collectionName).update({}, q, false, true);
     }
     var end = new Date();
-    print("after count:" + db.getCollection(collectionName).count());
-    print("collection:" + db.getCollection(collectionName));
+    print("after count:" + csDB.getCollection(collectionName).count());
+    print("collection:" + csDB.getCollection(collectionName));
     timeInSeconds = ((end - start)/1000);
     print("lastResult:" + lastResult);
     print("queryType:\"" + queryType +
